@@ -1,0 +1,53 @@
+let inputElement = document.querySelector("#task");
+let listDOM = document.querySelector("#list");
+let listLength = document.getElementsByTagName("li");
+
+let closeButton = document.createElement("span");
+closeButton.textContent = "X";
+closeButton.classList.add("close");
+closeButton.onclick = removeButton;
+
+//Adding click event and remove button to old list elements
+for(let i=0; i < listLength.length;i++){
+    let closeButton = document.createElement("span");
+    closeButton.textContent = "X";
+    closeButton.classList.add("close");
+    closeButton.onclick = removeButton;
+    listLength[i].append(closeButton);
+    listLength[i].onclick = check;
+}
+
+function check(){
+    this.classList.toggle("checked");
+}
+
+function removeButton(){
+    this.parentElement.remove();
+}
+
+function newElement(){
+
+    if(inputElement.value ==""){
+        $(".error").toast("show")
+    }else{
+        $(".success").toast("show")
+
+        let newListItem = document.createElement("li");
+        newListItem.textContent = inputElement.value;
+        newListItem.onclick = check;
+
+        let closeButton = document.createElement("span");
+        closeButton.textContent = "X";
+        closeButton.classList.add("close");
+        closeButton.onclick = removeButton;
+
+        newListItem.append(closeButton);
+        listDOM.append(newListItem);
+        inputElement.value = ("");
+    }
+
+
+
+
+
+}
