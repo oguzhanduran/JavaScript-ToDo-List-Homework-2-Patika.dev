@@ -48,19 +48,28 @@ function elemanEkle() {
     listDOM.appendChild(liDOM); // Yaratacağımız liDOM değişkeninin her seferinde mevcut listenin en sonuna eklenmesi gerektiğini tanımladık.
     liDOM.innerHTML = task.value; // Burda ise inputID.değer diyerek inputa girilen değerlerin liDOM'a atanması gerektiğini belirttik.
     taskDOM.value = "";
-
+  
+   
+    
+    
+   
    //SONRADAN EKLENEN MADDELERİ SİLMEK İÇİN AYNI İŞLEMLERİN TEKRARI
-
+         liDOM.onclick = check;
+        
     let closeButton = document.createElement("span");
         closeButton.textContent = "\u00D7";
         closeButton.classList.add("close");
         closeButton.onclick = removeButton;
-
+        
         liDOM.append(closeButton);
         listDOM.append(liDOM);
         inputElement.value = ("");
+
+        
 }
 }    
+
+
 
 
 
